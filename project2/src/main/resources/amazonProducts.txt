@@ -1,0 +1,9 @@
+listingId;productId;title;publishDate;url
+1;12;^TP-Link AC750 Dual Band WiFi Range Extender, Repeater, Access Point w/Mini Housing 
+Design, Extends WiFi to Smart Home & Alexa Devices (RE200)^;09/10/17;http://a.co/d/3ivKXxI
+2;13;^PHICOMM K3C AC 1900 MU-MIMO Dual Band Wi-Fi Gigabit Router – Powered by Intel 
+Technology^;11/15/18;http://a.co/d/eKdbr5P
+3;17;^Tuft & Needle Queen Mattress, Bed in a Box, T&N Adaptive Foam, Sleeps Cooler with 
+More Pressure Relief & Support Than Memory Foam, Certi-PUR & Oeko-Tex 100 Certified, 
+10-Year Warranty, Made in USA^;08/22/16;http://a.co/d/efLN6jt
+4;22;^Queen Size SafeRest Premium Hypoallergenic Waterproof Mattress Protector - Vinyl Free^;08/22/16;http://a.co/d/fcgIGcG

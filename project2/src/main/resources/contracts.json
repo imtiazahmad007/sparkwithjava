@@ -1,0 +1,42 @@
+[{
+    "id": "contract-11934",
+    "buildingKey": "993839c8bh3fdgcc6734624ee8cc351050bn9shf93",
+    "geo_location": {
+      "type": "exact",
+      "coordinates": [
+        -78.8922549,
+        36.0013755
+      ]
+    },
+    "properties": {
+      "permit_no": "110138",
+      "lat_and_lon": [
+        36.0013755,
+        -78.8922549
+      ],
+      "address": "877 W CANAL ST",
+      "year": "2009"
+    },
+    "timestamp": "2014-02-09T12:28:33-05:00"
+  },
+  {
+    "id": "contract-11984",
+    "buildingKey": "8fdn8rh3fdgcc6734624ee89wn350bn9shf93",
+    "geo_location": {
+      "type": "exact",
+      "coordinates": [
+        -87.9872323,
+        36.0013755
+      ]
+    },
+    "properties": {
+      "permit_no": "110138",
+      "lat_and_lon": [
+        36.0013755,
+        -78.8922549
+      ],
+      "address": "923 YETTI ST",
+      "year": "2004"
+    },
+    "timestamp": "2014-02-09T12:28:33-05:00"
+  }]
