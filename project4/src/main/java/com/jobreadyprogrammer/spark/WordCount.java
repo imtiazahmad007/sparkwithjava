@@ -37,7 +37,8 @@ public class WordCount {
 		  		"      'for', 'if', 'in', 'into', 'is', 'it',\r\n" + 
 		  		"      'no', 'not', 'of', 'on', 'or', 'such',\r\n" + 
 		  		"      'that', 'the', 'their', 'then', 'there', 'these',\r\n" + 
-		  		"      'they', 'this', 'to', 'was', 'will', 'with', 'he', 'she')";
+		  		"      'they', 'this', 'to', 'was', 'will', 'with', 'he', 'she', 'your', 'you', 'I', "
+		  		+ " 'i','[',']', '[]', 'his', 'him', 'our', 'we')";
 		  
 		  Dataset<Row> df2 = lineDS.toDF();
 		  df2 = df2.groupBy("value").count();
