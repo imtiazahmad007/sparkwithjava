@@ -22,8 +22,8 @@ public class InferCSVSchema {
 		        .load("src/main/resources/amazonProducts.txt");
 		 
 		    System.out.println("Excerpt of the dataframe content:");
-		    df.show(7);
-//		    df.show(7, 90); // truncate after 90 chars
+//		    df.show(7);
+		    df.show(7, 90); // truncate after 90 chars
 		    System.out.println("Dataframe's schema:");
 		    df.printSchema();
 	}

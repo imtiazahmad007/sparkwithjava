@@ -6,12 +6,12 @@ public class Application {
 		
 //		InferCSVSchema parser = new InferCSVSchema();
 //		parser.printSchema();
-//		
+		
 //		DefineCSVSchema parser2 = new DefineCSVSchema();
 //		parser2.printDefinedSchema();
-		
-		JSONLinesParser parser = new JSONLinesParser();
-		parser.parseJsonLines();
+//		
+		JSONLinesParser parser3 = new JSONLinesParser();
+		parser3.parseJsonLines();
 
 	}
 
