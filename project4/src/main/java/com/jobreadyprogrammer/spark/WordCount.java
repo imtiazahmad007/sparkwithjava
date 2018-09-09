@@ -1,12 +1,13 @@
 package com.jobreadyprogrammer.spark;
 
-import org.apache.spark.api.java.function.MapFunction;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-import com.jobreadyprogrammer.pojos.Line;
+import com.jobreadyprogrammer.mappers.LineMapper;
+
+import breeze.linalg.Options.Value;
 
 public class WordCount {
 
@@ -25,26 +26,27 @@ public class WordCount {
 		 df.show(5);
 		 df.printSchema();
 		 
-		 Dataset<Line> houseDS = df.map(
-			        new MapFunction<Row, Line>(){
-			        	
-			        	private static final long serialVersionUID = -2L;
-			        	
-						@Override
-						public Line call(Row value) throws Exception {
-							String[] words = value.toString().split(" ");
-							Line l = new Line();
-							l.setWords(words);
-							
-							return l;
-						}
-			        	
-			        },
-			        
-			        Encoders.bean(Line.class));
+		  Dataset<String> lineDS = df.flatMap(
+			        new LineMapper(), Encoders.STRING());
+		
 		 
-		 houseDS.printSchema();
-		 houseDS.show(10, 50);
+		  lineDS.printSchema();
+		  lineDS.show(10, 200);
+		  
+		  String boringWords = "(   'a', 'an', 'and', 'are', 'as', 'at', 'be', 'but', 'by',\r\n" + 
+		  		"      'for', 'if', 'in', 'into', 'is', 'it',\r\n" + 
+		  		"      'no', 'not', 'of', 'on', 'or', 'such',\r\n" + 
+		  		"      'that', 'the', 'their', 'then', 'there', 'these',\r\n" + 
+		  		"      'they', 'this', 'to', 'was', 'will', 'with', 'he', 'she')";
+		  
+		  Dataset<Row> df2 = lineDS.toDF();
+		  df2 = df2.groupBy("value").count();
+		  df2 = df2.filter("lower(value) NOT IN" + boringWords);
+		  df2 = df2.orderBy(df2.col("count").desc());
+		  
+		  
+		  df2.printSchema();
+		  df2.show(100);
 	}
 	
 

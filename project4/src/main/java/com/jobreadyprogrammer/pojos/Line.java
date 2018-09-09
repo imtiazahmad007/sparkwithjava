@@ -1,14 +1,8 @@
 package com.jobreadyprogrammer.pojos;
 
-import java.io.Serializable;
-
-public class Line implements Serializable {
+public class Line {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	String[] words;
+	private static String[] words;
 
 	public String[] getWords() {
 		return words;
