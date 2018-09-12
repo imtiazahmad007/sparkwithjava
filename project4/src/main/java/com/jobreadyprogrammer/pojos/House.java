@@ -1,8 +1,14 @@
 package com.jobreadyprogrammer.pojos;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class House {
+public class House implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private int id;
 	private String address;
@@ -50,9 +56,5 @@ public class House {
 	public void setVacantBy(Date vacantBy) {
 		this.vacantBy = vacantBy;
 	}
-
-
-
-	
 	
 }

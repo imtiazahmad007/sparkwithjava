@@ -7,11 +7,12 @@ public class Application {
 //		ArrayToDataset app = new ArrayToDataset();
 //		app.start();
 		
-//		CsvToDatasetHouseToDataframe app = new CsvToDatasetHouseToDataframe();
-//		app.start();
+		CsvToDatasetHouseToDataframe app = new CsvToDatasetHouseToDataframe();
+		app.start();
 	
-		WordCount wc = new WordCount();
-		wc.start();
+//		WordCount wc = new WordCount();
+//		wc.start();
+		
 	}
 
 	

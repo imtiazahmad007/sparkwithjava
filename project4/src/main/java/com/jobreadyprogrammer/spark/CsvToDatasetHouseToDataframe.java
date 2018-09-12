@@ -3,10 +3,12 @@ package com.jobreadyprogrammer.spark;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
+import static org.apache.spark.sql.functions.*;
 import org.apache.spark.sql.SparkSession;
 
 import com.jobreadyprogrammer.mappers.HouseMapper;
 import com.jobreadyprogrammer.pojos.House;
+
 
 public class CsvToDatasetHouseToDataframe {
 	
@@ -25,28 +27,21 @@ public class CsvToDatasetHouseToDataframe {
 		        .option("header", true)
 		        .option("sep", ";")
 		        .load(filename);
-		 
-		    System.out.println("*** Houses ingested in a dataframe");
 		    
-		    df.show(5);
-		    df.printSchema();
-		 
+		    System.out.println("House ingested in a dataframe: ");
+//		    df.show(5);
+//		    df.printSchema();
+		
+		    Dataset<House> houseDS = df.map(new HouseMapper(), Encoders.bean(House.class));
 		    
-		    Dataset<House> houseDS = df.map(
-		        new HouseMapper(), Encoders.bean(House.class));
-		    
-		    System.out.println("below schema is for house dataset");
-		    houseDS.show(5, 17);
+		    System.out.println("*****House ingested in a dataset: *****");
+
+		    houseDS.show(5);
 		    houseDS.printSchema();
 		    
-		    System.out.println("below is the houses dataframe");
-		    
 		    Dataset<Row> df2 = houseDS.toDF();
-
-//		    df2.printSchema();
-//		    df2.show(5, 17);
-		    
-		
+		    df2 = df2.withColumn("formatedDate", concat(df2.col("vacantBy.date"), lit("_"), df2.col("vacantBy.year")));
+		    df2.show(10);
 	}
 	
 
