@@ -6,13 +6,12 @@ import org.apache.spark.sql.SparkSession;
 
 import static org.apache.spark.sql.functions.*;
 
-
 public class Application {
 
 	public static void main(String[] args) {
 
 		SparkSession spark = SparkSession.builder()
-		        .appName("Learning More Spark SQL")
+		        .appName("Learning Spark SQL Dataframe API")
 		        .master("local")
 		        .getOrCreate();
 		
@@ -31,23 +30,13 @@ public class Application {
 		        .option("header", true)
 		        .load(gradeChartFile);
 		    
-
-		     // How to join tables
-		    // Talk about how you can get rid of the df.col() and just use col()
-		    // Talk about using just column names in strings in the select
-		    // Talk about how you can also just use the col() function instead of df.col()
-		    // start with removing df. Then go on to remove the col() as well to show the stripped down version
-		    // Talk about how adding filter after the select limits what you can filter! Unlike SQL.
-		    // Always have your selects at the end of your filtering
-			    studentDf.join(gradesDf,  studentDf.col("GPA").equalTo((gradesDf.col("gpa"))))
-//			    	.drop("gpa").drop("GPA")
-			    	.select(studentDf.col("student_name"), 
-			    			gradesDf.col("letter_grade"),
-			    			studentDf.col("favorite_book_title"),
-			    			studentDf.col("GPA")) // must have this for below filter to work
-			    	.filter(col("GPA").between(2, 3.5)).show();
-//			    	.filter(upper(col("letter_grade")).like("B")).show();
-			    	
+		    Dataset<Row> filteredDf = studentDf.join(gradesDf, studentDf.col("GPA").equalTo(gradesDf.col("GPA")))
+		    	.filter(gradesDf.col("gpa").gt(3.0).and(gradesDf.col("gpa").lt(4.5))
+		    									  .or(gradesDf.col("gpa").equalTo(1.0)))
+		    	.select("student_name",
+		    			"favorite_book_title",
+		    			"letter_grade");
+		   
 		    
 	}
 
