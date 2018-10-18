@@ -1,8 +1,8 @@
 product_id,product_name,product_price
-1,Pear                                              ,0.95
-2,Banana                                            ,0.75
-3,Orange                                            ,0.75
-4,Apple                                             ,0.85
-5,Bread                                             ,2.50
-6,Sliced Ham                                        ,3.00
-7,Kleenex                                           ,4.00
+1,Pear,0.95
+2,Banana,0.75
+3,Orange,0.75
+4,Apple,0.85
+5,Bread,2.50
+6,Sliced Ham,3.00
+7,Kleenex,4.00

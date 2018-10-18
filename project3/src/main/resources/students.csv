@@ -1,0 +1,14 @@
+student_id,student_name,State,GPA,favorite_book_title,working
+1100,Royce Piche,NJ,1.5,To Kill a Mockingbird,TRUE
+1120,Alexis Morriss,NJ,3.0,Pride and Prejudice,FALSE
+1130,Len Tarbell,NJ,3.5,The Diary of Anne Frank,FALSE
+1140,Alejandro Dory,NY,2.5,Harry Potter and the Sorcerer's Stone,FALSE
+1150,Ricky Tremaine,NY,3.0,The Lord of the Rings,TRUE
+1160,Monika Gift,NY,3.0,The Great Gatsby,TRUE
+1170,Kristeen Line,CA,4.0,Animal Farm,FALSE
+1180,Sonia Rickard,CA,4.0,Harry Potter and the Sorcerer's Stone,FALSE
+1190,Dan Iacovelli,CA,3.5,The Hunger Games,FALSE
+1200,Ned Alvin,CA,1.0,,TRUE
+1210,Sidney Ducote,FL,1.5,The Secret Garden,FALSE
+1220,Bobbie Shrader,FL,2.0,The Color Purple,FALSE
+,,,,,
