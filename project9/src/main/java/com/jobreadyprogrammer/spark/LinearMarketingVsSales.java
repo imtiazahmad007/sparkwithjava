@@ -26,7 +26,10 @@ public class LinearMarketingVsSales {
 			.option("inferSchema", "true")
 			.format("csv")
 			.load("/Users/imtiazahmad/Desktop/SparkCourse/data/marketing_vs_sales.csv");
-
+		markVsSalesDf.show();
+		
+		// go through the lecture first and then start un-commenting the code below
+/**
 		Dataset<Row> mldf = markVsSalesDf.withColumnRenamed("sales", "label")
 		.select("label", "marketing_spend","bad_day");
 		
@@ -48,7 +51,7 @@ public class LinearMarketingVsSales {
 		
 		System.out.println("R Squared: "+ learningModel.summary().r2());
 		
-		
+		**/
 		
 	}
 }
