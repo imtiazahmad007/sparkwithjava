@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jobreadyprogrammer</groupId>
+  <artifactId>project9</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  
+   <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<scala.version>2.11</scala.version>
+   		<spark.version>2.3.0</spark.version>
+    	<postgresql.version>42.1.4</postgresql.version>
+	</properties>
+	
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_${scala.version}</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-sql_${scala.version}</artifactId>
+			<version>${spark.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<dependency>
+	      	<groupId>org.apache.spark</groupId>
+	      	<artifactId>spark-mllib_${scala.version}</artifactId>
+	      	<version>${spark.version}</version>
+	    </dependency>
+
+		<dependency>
+	    	<groupId>org.apache.spark</groupId>
+	      	<artifactId>spark-sql-kafka-0-10_2.11</artifactId>
+	      	<version>2.3.0</version>
+	    </dependency>
+
+
+
+	</dependencies>
+
+  <build>
+
+      <plugins>
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-dependency-plugin</artifactId>
+		    <executions>
+		        <execution>
+		            <id>copy-dependencies</id>
+		            <phase>prepare-package</phase>
+		            <goals>
+		                <goal>copy-dependencies</goal>
+		            </goals>
+		            <configuration>
+		                <outputDirectory>
+		                    ${project.build.directory}/libs
+		                </outputDirectory>
+		            </configuration>
+		        </execution>
+		    </executions>
+		</plugin>
+	
+
+		<plugin>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-maven-plugin</artifactId>
+		    <executions>
+		        <execution>
+		            <goals>
+		                <goal>repackage</goal>
+		            </goals>
+		            <configuration>
+
+		                <mainClass>com.jobreadyprogrammer.spark.Application</mainClass>
+
+		            </configuration>
+		        </execution>
+		    </executions>
+		</plugin>
+
+
+	    </plugins>
+	    
+	    
+</build>
+
+  
+</project>
